@@ -14,7 +14,7 @@ class ProductCubit extends Cubit<ProductState> {
       Product(
         name: 'UTA - HO2 - CO1',
         importDate: '05/08/2023',
-        weight: '0,005kg',
+        weight: '0,006kg',
       ),
     ])); // Dữ liệu sản phẩm từ hình ảnh
   }

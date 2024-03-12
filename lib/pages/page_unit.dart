@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import, sized_box_for_whitespace, avoid_unnecessary_containers, avoid_print, prefer_const_constructors, unnecessary_new, unused_element, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+import 'package:trangtraicua_demo/pages/chitietkiemtrabox.dart';
 
 class Unit1 extends StatefulWidget {
   const Unit1({super.key});
@@ -9,8 +10,6 @@ class Unit1 extends StatefulWidget {
 }
 
 String _dropdownvalue = 'Lọc';
-
-// List of items in our dropdown menu
 var items = [
   'Lọc',
   'Item 2',
@@ -21,14 +20,16 @@ class _Unit1State extends State<Unit1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
           color: Color(0xFF087EBF),
-          onPressed: () {},
+          onPressed: () {
+            //event onPressed
+          },
         ),
         title: Text(
           "UNIT 1A",
@@ -36,110 +37,214 @@ class _Unit1State extends State<Unit1> {
               TextStyle(color: Color(0xFF087EBF), fontWeight: FontWeight.bold),
         ),
       ),
-      body: new ListView(
-        shrinkWrap: true,
-        physics: ScrollPhysics(),
+      body: ListView(
+        padding: EdgeInsets.only(left: 15, top: 15),
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: DropdownButtonFormField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              OutlinedButton(
+                onPressed: () {
+                  //event
+                },
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      side: BorderSide(color: Colors.grey),
+                    ),
+                  ),
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('Lọc'),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Icon(Icons.keyboard_arrow_down_sharp)
+                  ],
                 ),
               ),
-              value: _dropdownvalue,
-              icon: const Icon(Icons.keyboard_arrow_down),
-              items: items.map((String items) {
-                return DropdownMenuItem(
-                  value: items,
-                  child: Text(items),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  _dropdownvalue = newValue!;
-                });
-              },
-            ),
+            ],
           ),
-          new SizedBox(height: 20.0),
-          new Container(
-            child: new ListView.builder(
+          SizedBox(height: 10.0),
+          Container(
+            color: Colors.white,
+            child: ListView.builder(
               shrinkWrap: true,
-              itemCount: 5,
+              itemCount: 3,
               physics: ScrollPhysics(),
               itemBuilder: (context, index) {
-                return new Column(
+                return Column(
                   children: <Widget>[
-                    new Container(
-                      height: 21.0,
+                    Container(
                       color: Colors.white,
-                      child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
-                         Icon(Icons.format_list_numbered,
-                              color: Colors.white),
-                         Padding(
-                              padding: const EdgeInsets.only(right: 5.0)),
-                         Text('Hàng ${index + 1}',
-                              style: new TextStyle(
-                                  fontSize: 15.0, color: Colors.grey),
+                          Padding(padding: const EdgeInsets.only(right: 5.0)),
+                          Text('Hàng ${index + 1}',
+                              style:
+                                  TextStyle(fontSize: 18.0, color: Colors.grey),
                               textAlign: TextAlign.left),
                         ],
                       ),
                     ),
-                    new Container(
-                      height: 240.0,
-                      child: new ListView.builder(
+                    Container(
+                      color: Colors.white,
+                      height: 205.0,
+                      child: ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
-                        itemCount: 10,
+                        itemCount: 5,
                         itemBuilder: (context, index) {
                           return Card(
-                            elevation: 5.0,
+                            color: Colors.white,
                             child: Container(
+                              padding: EdgeInsets.only(left: 10, right: 10),
                               height: MediaQuery.of(context).size.width / 2,
-                              width: MediaQuery.of(context).size.width / 2,
-                              alignment: Alignment.center,
+                              width: 241,
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Item ${index + 1}'),
-                                  SizedBox(height: 10,),
-                                  Image.network(''),
-                                  SizedBox(height: 10,),
+                                  Padding(
+                                      padding: const EdgeInsets.only(top: 15)),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'U1A - H0${index + 1} - C01',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Image(
+                                        image: AssetImage(
+                                            'assets/images/cuado.png'),
+                                        width: 24,
+                                        height: 24,
+                                      ),
+                                    ],
+                                  ),
                                   Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                            'Ngày nhập: 05/08/2023'), //->do data
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Text(
+                                            'Trọng lượng nhập: 0,005kg'), //->do data
+                                      ]),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       TextButton(
                                         style: ButtonStyle(
-                                          foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                                          textStyle: MaterialStateProperty.all<
+                                              TextStyle>(
+                                            TextStyle(
+                                              fontWeight:
+                                                  FontWeight.bold, // In đậm
+                                            ),
+                                          ),
+                                          backgroundColor: MaterialStateProperty
+                                              .all<Color>(Color(
+                                                  0xFF0A7EBF)), // Màu nền của nút Kiểm tra & vệ sinh|1 là blue
+                                          foregroundColor:
+                                              MaterialStateProperty.all<Color>(
+                                                  Colors.white),
+                                          fixedSize: MaterialStateProperty.all(
+                                              Size(250, 40)),
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              // Bo tròn viền nút
+                                            ),
+                                          ), // Màu chữ của nút Kiểm tra & vệ sinh|1 là trắng
                                         ),
-                                        onPressed: () { 
-                                          Navigator.of(context).pop();
-                                       }, 
-                                       child: Text('KIỂM TRA & VỆ SINH | 1'),                                   
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    ChiTietKiemTraBox()),
+                                          );
+                                        },
+                                        child: Text('KIỂM TRA & VỆ SINH | 1'),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
                                       ),
                                       TextButton(
                                         style: ButtonStyle(
-                                          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                                          textStyle: MaterialStateProperty.all<
+                                              TextStyle>(
+                                            TextStyle(
+                                              fontWeight:
+                                                  FontWeight.bold, // In đậm
+                                            ),
+                                          ),
+                                          backgroundColor: MaterialStateProperty
+                                              .all<Color>(Colors
+                                                  .white), // Màu nền của nút Chuyển Hộp là trắng
+                                          foregroundColor:
+                                              MaterialStateProperty.all<Color>(
+                                                  Color(0xFF0A7EBF)),
+                                          fixedSize: MaterialStateProperty.all(Size(
+                                              250,
+                                              40)), // Màu chữ của nút Chuyển Hộp là blue
+                                          side: MaterialStateProperty
+                                              .all<BorderSide>(BorderSide(
+                                                  color: Color(0xFF0A7EBF))),
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      5), // Bo tròn viền nút
+                                            ),
+                                          ), // Viền của nút Chuyển Hộp là blue
                                         ),
-                                        onPressed: () { 
+                                        onPressed: () {
                                           Navigator.of(context).pop();
-                                       }, 
-                                       child: Text('CHUYỂN HỘP'),                                       
+                                        },
+                                        child: Text('CHUYỂN HỘP'),
                                       )
                                     ],
                                   )
                                 ],
-                              ) 
+                              ),
                             ),
                           );
                         },
                       ),
                     ),
-                   SizedBox(height: 20.0),
+                    Container(
+                      color: Colors.grey, // Đặt màu xám cho nền của Container
+                      child: SizedBox(
+// Đặt chiều cao của SizedBox
+                          // Các widgets con của SizedBox ở đây
+                          ),
+                    ),
                   ],
                 );
               },
