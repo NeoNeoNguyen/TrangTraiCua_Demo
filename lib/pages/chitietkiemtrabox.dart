@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, unused_import, sized_box_for_whitespace, sort_child_properties_last, use_full_hex_values_for_flutter_colors
+// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, unused_import, sized_box_for_whitespace, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -43,7 +43,7 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
           centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios),
-            color: Color.fromARGB(255, 173, 0, 6),
+            color: Color(0xFF087EBF),
             onPressed: () {
               Navigator.of(context).pop();
             },
@@ -51,8 +51,7 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
           title: Text(
             "U1A - H01 - C01",
             style: TextStyle(
-                color: Color.fromARGB(255, 173, 0, 6),
-                fontWeight: FontWeight.bold),
+                color: Color(0xFF087EBF), fontWeight: FontWeight.bold),
           ),
         ),
         body: Padding(
@@ -190,7 +189,7 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
                     ),
                     Text('Hình ảnh ($selectedImages/$maxImages)'),
                     Padding(
-                      padding: EdgeInsets.all(2),
+                      padding: EdgeInsets.all(20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
@@ -202,7 +201,7 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
                             children: List.generate(3, (index) {
                               return DottedBorder(
                                   borderType: BorderType.RRect,
-                                  radius: Radius.circular(5),
+                                  radius: Radius.circular(12),
                                   strokeWidth: 1,
                                   color: Colors.grey,
                                   dashPattern: const [
@@ -247,138 +246,46 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
                                 fontWeight: FontWeight.normal),
                           ),
                           Container(
-                            height: 300, // Đặt chiều cao tùy ý
-                            child: DottedBorder(
-                              borderType: BorderType.RRect,
-                              radius: Radius.circular(5),
-                              strokeWidth: 1,
-                              color: Colors.grey,
-                              dashPattern: const [
-                                6,
-                                3
-                              ], // Pattern của đường nét, có thể tùy chỉnh
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Center(
-                                  child: ElevatedButton(
-                                    onPressed: pickImageFromGallery,
-                                    child: Icon(Icons.play_circle),
-                                    style: ButtonStyle(
-                                        minimumSize: MaterialStateProperty
-                                            .resolveWith<Size>(
-                                          (states) => Size(
-                                              double.infinity, double.infinity),
-                                        ),
-                                        backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.white),
-                                        shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(5.0),
-                                          ),
-                                        )),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                              height: 300, // Đặt chiều cao tùy ý
+                              child: DottedBorder(
+                                  borderType: BorderType.RRect,
+                                  radius: Radius.circular(12),
+                                  strokeWidth: 1,
+                                  color: Colors.grey,
+                                  dashPattern: const [
+                                    6,
+                                    3
+                                  ], // Pattern của đường nét, có thể tùy chỉnh
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    child: Center(
+                                      child: ElevatedButton(
+                                        onPressed: pickImageFromGallery,
+                                        child: Icon(Icons.play_circle),
+                                        style: ButtonStyle(
+                                            minimumSize: MaterialStateProperty
+                                                .resolveWith<Size>(
+                                              (states) => Size(double.infinity,
+                                                  double.infinity),
+                                            ),
+                                            backgroundColor:
+                                                MaterialStateProperty.all<
+                                                    Color>(Colors.white),
+                                            shape: MaterialStateProperty.all<
+                                                RoundedRectangleBorder>(
+                                              RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(5.0),
+                                              ),
+                                            )),
+                                      ),
+                                    ),
+                                  )))
                         ],
                       ),
                     ),
-                    SizedBox(height: 25),
-                    TextButton(
-                      style: ButtonStyle(
-                        textStyle: MaterialStateProperty.all<TextStyle>(
-                          TextStyle(
-                            fontWeight: FontWeight.bold, // In đậm
-                          ),
-                        ),
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Color.fromARGB(255, 173, 0,
-                                6)), // Màu nền của nút Kiểm tra & vệ sinh|1 là blue
-                        foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white),
-                        fixedSize: MaterialStateProperty.all(Size(250, 40)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            // Bo tròn viền nút
-                          ),
-                        ), // Màu chữ của nút Kiểm tra & vệ sinh|1 là trắng
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ChiTietKiemTraBox()),
-                        );
-                      },
-                      child: Text('LƯU & ĐI TIẾP HÀNG'),
-                    ),
-                    SizedBox(height: 15),
-                    TextButton(
-                      style: ButtonStyle(
-                        textStyle: MaterialStateProperty.all<TextStyle>(
-                          TextStyle(
-                            fontWeight: FontWeight.bold, // In đậm
-                          ),
-                        ),
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors
-                            .white), // Màu nền của nút Chuyển Hộp là trắng
-                        foregroundColor: MaterialStateProperty.all<Color>(
-                            Color.fromARGB(255, 173, 0, 6)),
-                        fixedSize: MaterialStateProperty.all(Size(
-                            250, 40)), // Màu chữ của nút Chuyển Hộp là blue
-                        side: MaterialStateProperty.all<BorderSide>(
-                            BorderSide(color: Color.fromARGB(255, 173, 0, 6))),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(5), // Bo tròn viền nút
-                          ),
-                        ), // Viền của nút Chuyển Hộp là blue
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text('LƯU & ĐI TIẾP CỘT'),
-                    ),
-                    SizedBox(height: 15),
-                    TextButton(
-                        style: ButtonStyle(
-                          textStyle: MaterialStateProperty.all<TextStyle>(
-                            TextStyle(
-                              fontWeight: FontWeight.bold, // In đậm
-                            ),
-                          ),
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors
-                                  .white), // Màu nền của nút Chuyển Hộp là trắng
-                          foregroundColor: MaterialStateProperty.all<Color>(
-                              Color.fromARGB(255, 173, 0, 6)),
-                          fixedSize: MaterialStateProperty.all(Size(
-                              250, 40)), // Màu chữ của nút Chuyển Hộp là blue
-                          side: MaterialStateProperty.all<BorderSide>(
-                              BorderSide(
-                                  color: Color.fromARGB(255, 173, 0, 6))),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.circular(5), // Bo tròn viền nút
-                            ),
-                          ), // Viền của nút Chuyển Hộp là blue
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text('LƯU')),
                   ]),
             ))));
   }
