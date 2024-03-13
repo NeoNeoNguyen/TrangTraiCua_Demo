@@ -1,6 +1,7 @@
-// ignore_for_file: unused_import, sized_box_for_whitespace, avoid_unnecessary_containers, avoid_print, prefer_const_constructors, unnecessary_new, unused_element, prefer_const_literals_to_create_immutables
+// ignore_for_file: unused_import, sized_box_for_whitespace, avoid_unnecessary_containers, avoid_print, prefer_const_constructors, unnecessary_new, unused_element, prefer_const_literals_to_create_immutables, use_full_hex_values_for_flutter_colors
 import 'package:flutter/material.dart';
 import 'package:trangtraicua_demo/pages/chitietkiemtrabox.dart';
+import 'package:trangtraicua_demo/pages/kiemtra_loc.dart';
 
 class Unit1 extends StatefulWidget {
   const Unit1({super.key});
@@ -8,13 +9,6 @@ class Unit1 extends StatefulWidget {
   @override
   State<Unit1> createState() => _Unit1State();
 }
-
-String _dropdownvalue = 'Lọc';
-var items = [
-  'Lọc',
-  'Item 2',
-  'Item 3',
-];
 
 class _Unit1State extends State<Unit1> {
   @override
@@ -26,15 +20,16 @@ class _Unit1State extends State<Unit1> {
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
-          color: Color(0xFF087EBF),
+          color: Color.fromARGB(255, 173, 0, 6),
           onPressed: () {
             //event onPressed
           },
         ),
         title: Text(
           "UNIT 1A",
-          style:
-              TextStyle(color: Color(0xFF087EBF), fontWeight: FontWeight.bold),
+          style: TextStyle(
+              color: Color.fromARGB(255, 173, 0, 6),
+              fontWeight: FontWeight.bold),
         ),
       ),
       body: ListView(
@@ -46,7 +41,11 @@ class _Unit1State extends State<Unit1> {
             children: [
               OutlinedButton(
                 onPressed: () {
-                  //event
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => KiemTraLoc()),
+                  );
                 },
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all(
@@ -75,7 +74,7 @@ class _Unit1State extends State<Unit1> {
             color: Colors.white,
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: 3,
+              itemCount: 10,
               physics: ScrollPhysics(),
               itemBuilder: (context, index) {
                 return Column(
@@ -95,7 +94,7 @@ class _Unit1State extends State<Unit1> {
                     ),
                     Container(
                       color: Colors.white,
-                      height: 205.0,
+                      height: 154.0,
                       child: ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
@@ -165,8 +164,11 @@ class _Unit1State extends State<Unit1> {
                                             ),
                                           ),
                                           backgroundColor: MaterialStateProperty
-                                              .all<Color>(Color(
-                                                  0xFF0A7EBF)), // Màu nền của nút Kiểm tra & vệ sinh|1 là blue
+                                              .all<Color>(Color.fromARGB(
+                                                  255,
+                                                  173,
+                                                  0,
+                                                  6)), // Màu nền của nút Kiểm tra & vệ sinh|1 là blue
                                           foregroundColor:
                                               MaterialStateProperty.all<Color>(
                                                   Colors.white),
@@ -194,41 +196,6 @@ class _Unit1State extends State<Unit1> {
                                       SizedBox(
                                         height: 10,
                                       ),
-                                      TextButton(
-                                        style: ButtonStyle(
-                                          textStyle: MaterialStateProperty.all<
-                                              TextStyle>(
-                                            TextStyle(
-                                              fontWeight:
-                                                  FontWeight.bold, // In đậm
-                                            ),
-                                          ),
-                                          backgroundColor: MaterialStateProperty
-                                              .all<Color>(Colors
-                                                  .white), // Màu nền của nút Chuyển Hộp là trắng
-                                          foregroundColor:
-                                              MaterialStateProperty.all<Color>(
-                                                  Color(0xFF0A7EBF)),
-                                          fixedSize: MaterialStateProperty.all(Size(
-                                              250,
-                                              40)), // Màu chữ của nút Chuyển Hộp là blue
-                                          side: MaterialStateProperty
-                                              .all<BorderSide>(BorderSide(
-                                                  color: Color(0xFF0A7EBF))),
-                                          shape: MaterialStateProperty.all<
-                                              RoundedRectangleBorder>(
-                                            RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      5), // Bo tròn viền nút
-                                            ),
-                                          ), // Viền của nút Chuyển Hộp là blue
-                                        ),
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('CHUYỂN HỘP'),
-                                      )
                                     ],
                                   )
                                 ],
@@ -239,12 +206,10 @@ class _Unit1State extends State<Unit1> {
                       ),
                     ),
                     Container(
-                      color: Colors.grey, // Đặt màu xám cho nền của Container
-                      child: SizedBox(
-// Đặt chiều cao của SizedBox
-                          // Các widgets con của SizedBox ở đây
-                          ),
-                    ),
+                      height: 15,
+                      color: Color.fromARGB(255, 243, 243, 243),
+                      padding: EdgeInsets.zero,
+                    )
                   ],
                 );
               },
