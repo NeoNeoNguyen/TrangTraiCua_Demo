@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:trangtraicua_demo/pages/page_unit.dart';
+import 'package:trangtraicua_demo/pages/kiemtra_vesinh_choan/unit/unit.dart';
 
 void main() => runApp(MyApp());
 

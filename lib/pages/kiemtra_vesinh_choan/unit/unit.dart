@@ -1,7 +1,7 @@
 // ignore_for_file: unused_import, sized_box_for_whitespace, avoid_unnecessary_containers, avoid_print, prefer_const_constructors, unnecessary_new, unused_element, prefer_const_literals_to_create_immutables, use_full_hex_values_for_flutter_colors
 import 'package:flutter/material.dart';
-import 'package:trangtraicua_demo/pages/chitietkiemtrabox.dart';
-import 'package:trangtraicua_demo/pages/kiemtra_loc.dart';
+import 'package:trangtraicua_demo/pages/kiemtra_vesinh_choan/chitietkiemtrabox/chitietkiemtrabox.dart';
+import 'package:trangtraicua_demo/pages/kiemtra_vesinh_choan/loc/loc.dart';
 
 class Unit1 extends StatefulWidget {
   const Unit1({super.key});
