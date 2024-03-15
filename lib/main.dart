@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:trangtraicua_demo/pages/kiemtra_vesinh_choan/unit/unit.dart';
+import 'package:trangtraicua_demo/pages/dangnhap/ui/dangnhap.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,11 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color.fromARGB(255, 223, 0, 22), 
+        primaryColor: Colors.white
       ),
       title:'TrangTraiCua',
-      home: Unit1(),
+      home: DangNhap(),
     );
   }
 }
