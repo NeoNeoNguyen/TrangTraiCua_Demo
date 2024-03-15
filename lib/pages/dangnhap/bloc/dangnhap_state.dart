@@ -1,6 +1,20 @@
 part of 'dangnhap_bloc.dart';
 
 @immutable
-sealed class DangnhapState {}
+abstract class DangnhapState {}
 
-final class DangnhapInitial extends DangnhapState {}
+abstract class DangnhapActionState extends DangnhapState{}
+
+class DangnhapInitial extends DangnhapState {}
+
+class DangnhapLoadingState extends DangnhapState{}
+
+class DangnhapLoadedSuccsessState extends DangnhapState{}
+
+class DangnhapErrorState extends DangnhapState{}
+
+class DangnhapClickButtonDangNhapState extends DangnhapState{}
+
+class DangnhapClickQuenMatKhauState extends DangnhapState{}
+
+
