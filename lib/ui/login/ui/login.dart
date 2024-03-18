@@ -1,36 +1,35 @@
 // ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, sized_box_for_whitespace
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trangtraicua_demo/ui/login/bloc/dangnhap_bloc.dart';
-import 'package:trangtraicua_demo/ui/login/ui/quenmatkhau.dart';
-import 'package:trangtraicua_demo/ui/home/ui/exportcrab.dart';
+import 'package:trangtraicua_demo/ui/login/bloc/login_bloc.dart';
+import 'package:trangtraicua_demo/ui/login/ui/resetpass.dart';
+import 'package:trangtraicua_demo/widgets/nav/bottomnavigation.dart';
 
-class DangNhap extends StatefulWidget {
-  const DangNhap({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  _DangNhapState createState() => _DangNhapState();
+  _LoginState createState() => _LoginState();
 }
 
-class _DangNhapState extends State<DangNhap> {
+class _LoginState extends State<Login> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _obscureText = true;
 
-  final DangnhapBloc dangnhapBloc = DangnhapBloc();
+  final LoginBloc loginBloc = LoginBloc();
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<DangnhapBloc, DangnhapState>(
-        bloc: dangnhapBloc,
+    return BlocConsumer<LoginBloc, LoginState>(
+        bloc: loginBloc,
         listener: (context, state) {
-          if (state is DangnhapClickButtonDangNhapState) {
+          if (state is LoginClickButtonLoginState) {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Home()));
-          } else if (state is DangnhapClickQuenMatKhauState) {
+                context, MaterialPageRoute(builder: (context) => NaviBar()));
+          } else if (state is LoginClickResetPassState) {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => QuenMatKhau()));
+                MaterialPageRoute(builder: (context) => ResetPass()));
           }
         },
         builder: (context, state) {
@@ -88,7 +87,7 @@ class _DangNhapState extends State<DangNhap> {
                   SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
-                      dangnhapBloc.add(ClickButtonDangNhapEvent());
+                      loginBloc.add(ClickButtonLoginEvent());
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color.fromARGB(255, 173, 0, 6),
@@ -109,7 +108,7 @@ class _DangNhapState extends State<DangNhap> {
                   SizedBox(height: 16),
                   GestureDetector(
                     onTap: () {
-                      dangnhapBloc.add(ClickQuenMatKhauEvent());
+                      loginBloc.add(ClickResetPassEvent());
                     },
                     child: Text(
                       'Quên mật khẩu?',

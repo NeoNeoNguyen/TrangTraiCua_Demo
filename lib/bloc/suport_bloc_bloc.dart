@@ -7,7 +7,7 @@ part 'suport_bloc_state.dart';
 class SuportBlocBloc extends Bloc<SuportBlocEvent, SuportBlocState> {
   SuportBlocBloc() : super(SuportBlocInitial()) {
     on<SuportBlocEvent>((event, emit) {
-      // TODO: implement event handler
+
     });
   }
 }

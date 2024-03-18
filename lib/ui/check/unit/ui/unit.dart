@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trangtraicua_demo/ui/check/detailcheckbox/ui/detailcheckbox.dart';
-import 'package:trangtraicua_demo/ui/check/filter/fliter.dart';
+import 'package:trangtraicua_demo/ui/check/filter/ui/fliter.dart';
 import 'package:trangtraicua_demo/ui/check/ui/check.dart';
 import 'package:trangtraicua_demo/ui/check/unit/bloc/unit_bloc.dart';
 
@@ -24,7 +24,7 @@ class _Unit1State extends State<Unit1> {
       // buildWhen: (previous, current) => current is !UnitActionState,
       listener: (context, state) {
         if (state is UnitClickButtonBackState) {
-          Navigator.pop(context, MaterialPageRoute(builder: (context) => KiemTra()));
+          Navigator.pop(context, MaterialPageRoute(builder: (context) => Check()));
         } else if (state is UnitClickXemThongTinBoxState) {
           Navigator.push(context, MaterialPageRoute(builder: (context) => ChiTietKiemTraBox()));
         } else if (state is UnitClickButtonLocState){
