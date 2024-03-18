@@ -1,8 +1,8 @@
 part of 'login_bloc.dart';
 
 @immutable
-sealed class DangnhapEvent {}
+sealed class LoginEvent {}
 
-class ClickButtonDangNhapEvent extends DangnhapEvent {}
+class ClickButtonLoginEvent extends LoginEvent {}
 
-class ClickQuenMatKhauEvent extends DangnhapEvent{}
+class ClickResetPassEvent extends LoginEvent{}

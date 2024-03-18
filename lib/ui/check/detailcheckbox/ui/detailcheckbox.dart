@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trangtraicua_demo/ui/check/detailcheckbox/bloc/chitietkiemtrabox_bloc.dart';
+import 'package:trangtraicua_demo/ui/check/detailcheckbox/bloc/detailcheckbox_bloc.dart';
 import 'package:trangtraicua_demo/ui/check/unit/ui/unit.dart';
 
 class ChiTietKiemTraBox extends StatefulWidget {

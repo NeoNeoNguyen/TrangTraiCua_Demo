@@ -1,20 +1,20 @@
 part of 'login_bloc.dart';
 
 @immutable
-abstract class DangnhapState {}
+abstract class LoginState {}
 
-abstract class DangnhapActionState extends DangnhapState{}
+abstract class LoginActionState extends LoginState{}
 
-class DangnhapInitial extends DangnhapState {}
+class LoginInitial extends LoginState {}
 
-class DangnhapLoadingState extends DangnhapState{}
+class LoginLoadingState extends LoginState{}
 
-class DangnhapLoadedSuccsessState extends DangnhapState{}
+class LoginLoadedSuccsessState extends LoginState{}
 
-class DangnhapErrorState extends DangnhapState{}
+class LoginErrorState extends LoginState{}
 
-class DangnhapClickButtonDangNhapState extends DangnhapState{}
+class LoginClickButtonLoginState extends LoginState{}
 
-class DangnhapClickQuenMatKhauState extends DangnhapState{}
+class LoginClickResetPassState extends LoginState{}
 
 

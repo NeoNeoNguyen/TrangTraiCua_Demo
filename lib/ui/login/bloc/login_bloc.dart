@@ -6,19 +6,19 @@ import 'package:meta/meta.dart';
 part 'login_event.dart';
 part 'login_state.dart';
 
-class DangnhapBloc extends Bloc<DangnhapEvent, DangnhapState> {
-  DangnhapBloc() : super(DangnhapInitial()) {
-    on<ClickButtonDangNhapEvent>(clickButtonDangNhapEvent);
-    on<ClickQuenMatKhauEvent>(clickQuenMatKhauEvent);
+class LoginBloc extends Bloc<LoginEvent, LoginState> {
+  LoginBloc() : super(LoginInitial()) {
+    on<ClickButtonLoginEvent>(clickButtonLoginEvent);
+    on<ClickResetPassEvent>(clickResetPassEvent);
   }
 
-  FutureOr<void> clickButtonDangNhapEvent(
-      ClickButtonDangNhapEvent event, Emitter<DangnhapState> emit) {
-        emit(DangnhapClickButtonDangNhapState());
+  FutureOr<void> clickButtonLoginEvent(
+      ClickButtonLoginEvent event, Emitter<LoginState> emit) {
+        emit(LoginClickButtonLoginState());
       }
 
-  FutureOr<void> clickQuenMatKhauEvent(
-      ClickQuenMatKhauEvent event, Emitter<DangnhapState> emit) {
-        emit(DangnhapClickQuenMatKhauState());
+  FutureOr<void> clickResetPassEvent(
+      ClickResetPassEvent event, Emitter<LoginState> emit) {
+        emit(LoginClickResetPassState());
       }
 }
