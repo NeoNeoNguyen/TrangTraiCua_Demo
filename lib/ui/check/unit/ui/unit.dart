@@ -20,8 +20,6 @@ class _Unit1State extends State<Unit1> {
   Widget build(BuildContext context) {
     return BlocConsumer<UnitBloc, UnitState>(
       bloc: unitBloc,
-      // listenWhen: (previous, current) => current is UnitActionState,
-      // buildWhen: (previous, current) => current is !UnitActionState,
       listener: (context, state) {
         if (state is UnitClickButtonBackState) {
           Navigator.pop(context, MaterialPageRoute(builder: (context) => Check()));
@@ -110,7 +108,7 @@ class _Unit1State extends State<Unit1> {
                         ),
                         Container(
                           color: Colors.white,
-                          height: 154.0,
+                          height: 160.0,
                           child: ListView.builder(
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,

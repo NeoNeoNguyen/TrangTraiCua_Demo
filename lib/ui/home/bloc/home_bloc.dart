@@ -13,6 +13,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<ClickDevicesEvent>(clickDevicesEvent);
     on<ClickFoodsEvent>(clickFoodsEvent);
     on<ClickMoveBoxEvent>(clickMoveBoxEvent);
+    on<ClickOtherWorkEvent>(clickOtherWorkEvent);
   }
 
   FutureOr<void> clickCardUnitEvent(
@@ -22,26 +23,31 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   FutureOr<void> clickCheckCleaningFeedingEvent(
       ClickCheckCleaningFeedingEvent event, Emitter<HomeState> emit) {
-        emit(ClickCheckCleaningFeedingState());
-      }
+    emit(ClickCheckCleaningFeedingState());
+  }
 
   FutureOr<void> clickCheckWaterSourcesEvent(
       ClickCheckWaterSourcesEvent event, Emitter<HomeState> emit) {
-        emit(ClickCheckWaterSourcesState());
-      }
+    emit(ClickCheckWaterSourcesState());
+  }
 
   FutureOr<void> clickDevicesEvent(
       ClickDevicesEvent event, Emitter<HomeState> emit) {
-        emit(ClickDevicesState());
-      }
+    emit(ClickDevicesState());
+  }
 
   FutureOr<void> clickFoodsEvent(
       ClickFoodsEvent event, Emitter<HomeState> emit) {
-        emit(ClickFoodsState());
-      }
+    emit(ClickFoodsState());
+  }
 
   FutureOr<void> clickMoveBoxEvent(
       ClickMoveBoxEvent event, Emitter<HomeState> emit) {
-        emit(ClickMoveBoxState());
-      }
+    emit(ClickMoveBoxState());
+  }
+
+  FutureOr<void> clickOtherWorkEvent(
+      ClickOtherWorkEvent event, Emitter<HomeState> emit) {
+    emit(ClickOtherWorkState());
+  }
 }

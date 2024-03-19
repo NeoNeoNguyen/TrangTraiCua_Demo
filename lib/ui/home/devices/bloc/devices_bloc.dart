@@ -7,7 +7,7 @@ part 'devices_state.dart';
 class DevicesBloc extends Bloc<DevicesEvent, DevicesState> {
   DevicesBloc() : super(DevicesInitial()) {
     on<DevicesEvent>((event, emit) {
-      // TODO: implement event handler
+
     });
   }
 }
