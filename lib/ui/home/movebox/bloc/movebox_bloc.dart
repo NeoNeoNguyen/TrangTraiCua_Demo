@@ -7,7 +7,7 @@ part 'movebox_state.dart';
 class MoveboxBloc extends Bloc<MoveboxEvent, MoveboxState> {
   MoveboxBloc() : super(MoveboxInitial()) {
     on<MoveboxEvent>((event, emit) {
-      // TODO: implement event handler
+
     });
   }
 }

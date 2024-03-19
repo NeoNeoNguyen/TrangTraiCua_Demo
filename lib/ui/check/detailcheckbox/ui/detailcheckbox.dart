@@ -55,7 +55,8 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
                   icon: Icon(Icons.arrow_back_ios),
                   color: Color.fromARGB(255, 173, 0, 6),
                   onPressed: () {
-                    chiTietKiemtraBoxBloc.add(CTKTBoxClickBackEvent());
+                    // chiTietKiemtraBoxBloc.add(CTKTBoxClickBackEvent());
+                    Navigator.of(context).pop();
                   },
                 ),
                 title: Text(

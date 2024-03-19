@@ -110,7 +110,7 @@ class _HomeState extends State<Home> {
                               ),
                               SizedBox(height: 10),
                               Wrap(
-                                spacing: 50,
+                                spacing: 20,
                                 children: <Widget>[
                                   Text(
                                     'Unit: 10',
@@ -140,7 +140,7 @@ class _HomeState extends State<Home> {
                       SizedBox(height: 15),
                       ElevatedButton(
                         onPressed: () {
-                          // Xử lý khi nút
+                          homeBloc.add(ClickCheckCleaningFeedingEvent());
                         },
                         style: ButtonStyle(
                           padding:
@@ -168,7 +168,7 @@ class _HomeState extends State<Home> {
                       SizedBox(height: 10),
                       ElevatedButton(
                         onPressed: () {
-                          // Xử lý khi nút
+                          homeBloc.add(ClickMoveBoxEvent());
                         },
                         style: ButtonStyle(
                           padding:
@@ -199,7 +199,7 @@ class _HomeState extends State<Home> {
                       SizedBox(height: 15),
                       ElevatedButton(
                         onPressed: () {
-                          // Xử lý khi nút
+                          homeBloc.add(ClickCheckWaterSourcesEvent());
                         },
                         style: ButtonStyle(
                           padding:
@@ -227,7 +227,7 @@ class _HomeState extends State<Home> {
                       SizedBox(height: 10),
                       ElevatedButton(
                         onPressed: () {
-                          // Xử lý khi nút
+                          homeBloc.add(ClickDevicesEvent());
                         },
                         style: ButtonStyle(
                           padding:
@@ -255,7 +255,7 @@ class _HomeState extends State<Home> {
                       SizedBox(height: 10),
                       ElevatedButton(
                         onPressed: () {
-                          // Xử lý khi nút
+                          homeBloc.add(ClickFoodsEvent());
                         },
                         style: ButtonStyle(
                           padding:
@@ -283,7 +283,7 @@ class _HomeState extends State<Home> {
                       SizedBox(height: 10),
                       ElevatedButton(
                         onPressed: () {
-                          // Xử lý khi nút
+                          homeBloc.add(ClickOtherWorkEvent());
                         },
                         style: ButtonStyle(
                           padding:

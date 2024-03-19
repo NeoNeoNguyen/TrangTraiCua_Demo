@@ -7,7 +7,7 @@ part 'watersources_state.dart';
 class WatersourcesBloc extends Bloc<WatersourcesEvent, WatersourcesState> {
   WatersourcesBloc() : super(WatersourcesInitial()) {
     on<WatersourcesEvent>((event, emit) {
-      // TODO: implement event handler
+
     });
   }
 }
