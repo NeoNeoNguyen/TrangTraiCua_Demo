@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:trangtraicua_demo/ui/home/ui/home.dart';
+import 'package:trangtraicua_demo/ui/login/ui/login.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TrangTraiCua',
-      home: Home(),
+      home: Login(),
     );
   }
 }

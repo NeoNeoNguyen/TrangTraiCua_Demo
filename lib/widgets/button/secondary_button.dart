@@ -25,8 +25,10 @@ class SecondaryButton extends StatelessWidget {
           child: Center(
               child: Text(
             text,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: Colors.white, fontWeight: FontWeight.bold),
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium
+                ?.copyWith(color: AppColors.primaryColor, fontWeight: FontWeight.bold),
           ))),
     );
   }

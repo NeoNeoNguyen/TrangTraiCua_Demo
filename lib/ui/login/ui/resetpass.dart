@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:trangtraicua_demo/ui/login/ui/login.dart';
+import 'package:trangtraicua_demo/widgets/text/number_hotline.dart';
 
 class ResetPass extends StatelessWidget {
   const ResetPass({super.key});
@@ -42,13 +43,7 @@ class ResetPass extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 10),
-                Text(
-                  '0123456789',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 173, 0, 6),
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
+                HotLine()
               ]),
         ),
     );

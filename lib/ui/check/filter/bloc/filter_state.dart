@@ -1,6 +1,8 @@
 part of 'fliter_bloc.dart';
 
 @immutable
-sealed class LocState {}
+abstract class LocState {}
 
-final class LocInitial extends LocState {}
+class LocInitial extends LocState {}
+
+class ClickBackState extends LocState{}
