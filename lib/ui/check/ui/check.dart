@@ -7,6 +7,8 @@ import 'package:trangtraicua_demo/ui/check/unit/ui/unit.dart';
 import 'package:trangtraicua_demo/ui/exportcrab/ui/exportcrab.dart';
 import 'package:trangtraicua_demo/ui/home/ui/home.dart';
 import 'package:trangtraicua_demo/ui/importcrab/ui/importcrab.dart';
+import 'package:trangtraicua_demo/widgets/image/image_crab_24.dart';
+import 'package:trangtraicua_demo/widgets/main/appbar.dart';
 import 'package:trangtraicua_demo/widgets/nav/bottomnavigation.dart';
 
 class Check extends StatefulWidget {
@@ -32,16 +34,9 @@ class _CheckState extends State<Check> {
         },
         builder: (context, state) {
           return Scaffold(
-            appBar: AppBar(
-              automaticallyImplyLeading: false,
-              elevation: 0,
-              centerTitle: true,
-              title: Text(
-                'KTRA & VSINH_CHO ĂN',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 173, 0, 6),
-                    fontWeight: FontWeight.bold),
-              ),
+            appBar: MyAppBar(
+              title: 'KTRA & VSINH_CHO ĂN',
+              showBackButton: false,
             ),
             bottomNavigationBar: NaviBar(
               selectedIndex: _selectedIndex,
@@ -49,18 +44,14 @@ class _CheckState extends State<Check> {
                 setState(() {
                   _selectedIndex = index;
                 });
-                // Điều hướng đến các trang tương ứng khi người dùng chọn một mục trong BottomNavigationBar
                 switch (index) {
                   case 0:
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              Home()), // Điều hướng về trang Home
+                      MaterialPageRoute(builder: (context) => Home()),
                     );
                     break;
                   case 1:
-                    // Không cần điều hướng khi người dùng chọn trang Check vì chúng ta đã ở trang này
                     break;
                   case 2:
                     Navigator.pushReplacement(
@@ -153,32 +144,40 @@ class _CheckState extends State<Check> {
                                         children: [
                                           Row(
                                             children: [
-                                              Image.asset(
-                                                  'assets/images/ic_crabs_khoe_24dp.png'),
+                                              AssetImageWidget(
+                                                imagePath:
+                                                    'assets/images/ic_crabs_khoe_24dp.png',
+                                              ),
                                               SizedBox(width: 4),
                                               Text('x1'),
                                             ],
                                           ),
                                           Row(
                                             children: [
-                                              Image.asset(
-                                                  'assets/images/ic_crabs_bth_24dp.png'),
+                                              AssetImageWidget(
+                                                imagePath:
+                                                    'assets/images/ic_crabs_bth_24dp.png',
+                                              ),
                                               SizedBox(width: 4),
                                               Text('x2'),
                                             ],
                                           ),
                                           Row(
                                             children: [
-                                              Image.asset(
-                                                  'assets/images/ic_crabs_yếu_24dp.png'),
+                                              AssetImageWidget(
+                                                imagePath:
+                                                    'assets/images/ic_crabs_yếu_24dp.png',
+                                              ),
                                               SizedBox(width: 4),
                                               Text('x3'),
                                             ],
                                           ),
                                           Row(
                                             children: [
-                                              Image.asset(
-                                                  'assets/images/ic_crabs_chết_24dp.png'),
+                                              AssetImageWidget(
+                                                imagePath:
+                                                    'assets/images/ic_crabs_chết_24dp.png',
+                                              ),
                                               SizedBox(width: 4),
                                               Text('x4'),
                                             ],
