@@ -1,13 +1,17 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unused_field, unused_element, no_leading_underscores_for_local_identifiers, unused_local_variable
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trangtraicua_demo/ui/accout/ui/accout.dart';
 import 'package:trangtraicua_demo/ui/check/ui/check.dart';
+import 'package:trangtraicua_demo/ui/exportcrab/ui/exportcrab.dart';
 import 'package:trangtraicua_demo/ui/home/Food/ui/food.dart';
 import 'package:trangtraicua_demo/ui/home/bloc/home_bloc.dart';
 import 'package:trangtraicua_demo/ui/home/devices/ui/devices.dart';
 import 'package:trangtraicua_demo/ui/home/movebox/ui/movebox.dart';
 import 'package:trangtraicua_demo/ui/home/otherwork/ui/otherwork.dart';
 import 'package:trangtraicua_demo/ui/home/watersources/ui/watersources.dart';
+import 'package:trangtraicua_demo/ui/importcrab/ui/importcrab.dart';
+import 'package:trangtraicua_demo/widgets/nav/bottomnavigation.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,32 +23,29 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final HomeBloc homeBloc = HomeBloc();
 
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeBloc, HomeState>(
         bloc: homeBloc,
-        // listenWhen: (previous, current) => current is UnitActionState,
-        // buildWhen: (previous, current) => current is !UnitActionState,
         listener: (context, state) {
           if (state is ClickCheckCleaningFeedingState) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Check()));
           } else if (state is ClickMoveBoxState) {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => MoveBox()));
-          } else if (state is ClickCheckWaterSourcesState) {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => WaterSources()));
-          }
-          else if (state is ClickDevicesState) {
+                context, MaterialPageRoute(builder: (context) => MoveBox()));
+          } else if (state is ClickCheckWaterSourcesState) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => WaterSources()));
+          } else if (state is ClickDevicesState) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Devices()));
-          }
-          else if (state is ClickFoodsState) {
+          } else if (state is ClickFoodsState) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Food()));
-          }
-          else if (state is ClickOtherWorkState) {
+          } else if (state is ClickOtherWorkState) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => OtherWork()));
           }
@@ -73,6 +74,45 @@ class _HomeState extends State<Home> {
                   },
                 ),
               ],
+            ),
+            bottomNavigationBar: NaviBar(
+              selectedIndex: _selectedIndex,
+              onItemTapped: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+                // Điều hướng đến các trang tương ứng khi người dùng chọn một mục trong BottomNavigationBar
+                switch (index) {
+                  case 0:
+                    break;
+                  case 1:
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Check()), // Điều hướng về trang Home
+                    );
+                    break;
+                  case 2:
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => Importcrab()),
+                    );
+                    break;
+                  case 3:
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => Exportcrab()),
+                    );
+                    break;
+                  case 4:
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => Accout()),
+                    );
+                    break;
+                }
+              },
             ),
             body: Padding(
                 padding: const EdgeInsets.all(10),

@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, sized_box_for_whitespace
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trangtraicua_demo/ui/home/ui/home.dart';
 import 'package:trangtraicua_demo/ui/login/bloc/login_bloc.dart';
 import 'package:trangtraicua_demo/ui/login/ui/resetpass.dart';
-import 'package:trangtraicua_demo/widgets/nav/bottomnavigation.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -26,7 +26,7 @@ class _LoginState extends State<Login> {
         listener: (context, state) {
           if (state is LoginClickButtonLoginState) {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => NaviBar()));
+                context, MaterialPageRoute(builder: (context) => Home()));
           } else if (state is LoginClickResetPassState) {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => ResetPass()));
