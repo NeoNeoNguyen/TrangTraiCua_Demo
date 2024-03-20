@@ -1,8 +1,13 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names, unused_element, unused_field, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, unused_label, dead_code
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trangtraicua_demo/ui/accout/ui/accout.dart';
 import 'package:trangtraicua_demo/ui/check/bloc/check_bloc.dart';
 import 'package:trangtraicua_demo/ui/check/unit/ui/unit.dart';
+import 'package:trangtraicua_demo/ui/exportcrab/ui/exportcrab.dart';
+import 'package:trangtraicua_demo/ui/home/ui/home.dart';
+import 'package:trangtraicua_demo/ui/importcrab/ui/importcrab.dart';
+import 'package:trangtraicua_demo/widgets/nav/bottomnavigation.dart';
 
 class Check extends StatefulWidget {
   const Check({super.key});
@@ -13,6 +18,7 @@ class Check extends StatefulWidget {
 
 class _CheckState extends State<Check> {
   final CheckBloc checkBloc = CheckBloc();
+  int _selectedIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +42,46 @@ class _CheckState extends State<Check> {
                     color: Color.fromARGB(255, 173, 0, 6),
                     fontWeight: FontWeight.bold),
               ),
+            ),
+            bottomNavigationBar: NaviBar(
+              selectedIndex: _selectedIndex,
+              onItemTapped: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+                // Điều hướng đến các trang tương ứng khi người dùng chọn một mục trong BottomNavigationBar
+                switch (index) {
+                  case 0:
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Home()), // Điều hướng về trang Home
+                    );
+                    break;
+                  case 1:
+                    // Không cần điều hướng khi người dùng chọn trang Check vì chúng ta đã ở trang này
+                    break;
+                  case 2:
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => Importcrab()),
+                    );
+                    break;
+                  case 3:
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => Exportcrab()),
+                    );
+                    break;
+                  case 4:
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => Accout()),
+                    );
+                    break;
+                }
+              },
             ),
             body: ListView.builder(
               itemCount: 6,
