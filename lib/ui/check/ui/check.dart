@@ -74,7 +74,9 @@ class _CheckState extends State<Check> {
                 }
               },
             ),
-            body: ListView.builder(
+            body: Padding(
+              padding: EdgeInsets.all(10),
+              child: ListView.builder(
               itemCount: 6,
               itemBuilder: (context, index) {
                 return GestureDetector(
@@ -217,6 +219,7 @@ class _CheckState extends State<Check> {
                     ));
               },
             ),
+            )           
           );
         });
   }

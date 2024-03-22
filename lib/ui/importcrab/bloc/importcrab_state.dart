@@ -1,6 +1,8 @@
 part of 'importcrab_bloc.dart';
 
 @immutable
-sealed class NhapcuaState {}
+abstract class ImportCrabState {}
 
-final class NhapcuaInitial extends NhapcuaState {}
+class NhapcuaInitial extends ImportCrabState {}
+
+class ClickButtonFilterState extends ImportCrabState{}
