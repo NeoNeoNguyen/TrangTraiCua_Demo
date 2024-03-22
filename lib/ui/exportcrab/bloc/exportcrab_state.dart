@@ -1,6 +1,10 @@
 part of 'exportcrab_bloc.dart';
 
 @immutable
-sealed class XuatcuaState {}
+abstract class ExportCrabState {}
 
-final class XuatcuaInitial extends XuatcuaState {}
+class ExportCrabInitial extends ExportCrabState {}
+
+class ClickFilterState extends ExportCrabState {}
+
+class ClickButtonExportCrabState extends ExportCrabState{}

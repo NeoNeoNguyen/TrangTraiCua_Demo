@@ -1,4 +1,8 @@
 part of 'exportcrab_bloc.dart';
 
 @immutable
-sealed class XuatcuaEvent {}
+sealed class ExportCrabEvent {}
+
+class ClickFilterEvent extends ExportCrabEvent{}
+
+class ClickButtonExportCrabEvent extends ExportCrabEvent {}
