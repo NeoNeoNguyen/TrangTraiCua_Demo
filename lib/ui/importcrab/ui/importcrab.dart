@@ -96,7 +96,6 @@ class _ImportcrabState extends State<Importcrab> {
                           onPressed: () {},
                         ),
                         ThirdButton(
-                          width: 100,
                           onTap: () {},
                           text: 'NHẬP CUA',
                         ),
@@ -123,21 +122,13 @@ class _ImportcrabState extends State<Importcrab> {
                             spacing: 20,
                             children: <Widget>[
                               Text(
-                                'Unit: 10',
+                                'Tổng SL cua: 201',
                                 style: TextStyle(color: Colors.grey),
                               ),
                               Text(
-                                'Hop: 482',
+                                'Tổng TL: 33,42kg',
                                 style: TextStyle(color: Colors.grey),
-                              ),
-                              Text(
-                                'Cua: 482',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              Text(
-                                'KL: 22195kg',
-                                style: TextStyle(color: Colors.grey),
-                              ),
+                              ),                             
                             ],
                           )
                         ],
@@ -216,7 +207,7 @@ class _ImportcrabState extends State<Importcrab> {
                 ],
               ),
             ),
-            )         
+            )
           );
         });
   }
