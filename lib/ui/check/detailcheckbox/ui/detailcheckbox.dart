@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, unused_import, sized_box_for_whitespace, sort_child_properties_last, use_full_hex_values_for_flutter_colors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +6,8 @@ import 'package:trangtraicua_demo/styles/app_colors.dart';
 import 'package:trangtraicua_demo/ui/check/detailcheckbox/bloc/detailcheckbox_bloc.dart';
 import 'package:trangtraicua_demo/ui/check/unit/ui/unit.dart';
 import 'package:trangtraicua_demo/widgets/button/check_box.dart';
+import 'package:trangtraicua_demo/widgets/button/import_image_button.dart';
+import 'package:trangtraicua_demo/widgets/button/import_video_button.dart';
 import 'package:trangtraicua_demo/widgets/button/primary_button.dart';
 import 'package:trangtraicua_demo/widgets/button/secondary_button.dart';
 import 'package:trangtraicua_demo/widgets/text/title_top_textbox.dart';
@@ -155,8 +156,7 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
                                       CrossAxisAlignment.stretch,
                                   children: [
                                     TitleWithAsterisk(
-                                      title: 'Số lượng cua chết', // Màu sắc của dấu *
-                                    ),
+                                        title: 'Số lượng cua chết'),
                                     SizedBox(height: 10),
                                     InputBox(
                                       hintText: 'Nhập số lượng cua chết',
@@ -186,50 +186,9 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
                                       crossAxisSpacing: 10,
                                       mainAxisSpacing: 10,
                                       children: List.generate(3, (index) {
-                                        return DottedBorder(
-                                            borderType: BorderType.RRect,
-                                            radius: Radius.circular(5),
-                                            strokeWidth: 1,
-                                            color: Colors.grey,
-                                            dashPattern: const [
-                                              6,
-                                              3
-                                            ], // Pattern của đường nét, có thể tùy chỉnh
-                                            child: Container(
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                ),
-                                                child: Center(
-                                                    child: ElevatedButton(
-                                                        onPressed:
-                                                            pickImageFromGallery,
-                                                        child: Icon(Icons
-                                                            .add_photo_alternate_outlined),
-                                                        style: ButtonStyle(
-                                                            minimumSize:
-                                                                MaterialStateProperty
-                                                                    .resolveWith<
-                                                                        Size>(
-                                                              (states) => Size(
-                                                                  double
-                                                                      .infinity,
-                                                                  double
-                                                                      .infinity),
-                                                            ),
-                                                            backgroundColor:
-                                                                MaterialStateProperty
-                                                                    .all<Color>(
-                                                                        Colors
-                                                                            .white),
-                                                            shape: MaterialStateProperty.all<
-                                                                    RoundedRectangleBorder>(
-                                                                RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          5.0),
-                                                            )))))));
+                                        return ImportImageButton(
+                                          onPressed: pickImageFromGallery,
+                                        );
                                       }),
                                     ),
                                     SizedBox(height: 25),
@@ -240,50 +199,8 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
                                           color: Colors.grey,
                                           fontWeight: FontWeight.normal),
                                     ),
-                                    Container(
-                                      height: 300, // Đặt chiều cao tùy ý
-                                      child: DottedBorder(
-                                        borderType: BorderType.RRect,
-                                        radius: Radius.circular(5),
-                                        strokeWidth: 1,
-                                        color: Colors.grey,
-                                        dashPattern: const [
-                                          6,
-                                          3
-                                        ], // Pattern của đường nét, có thể tùy chỉnh
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                          ),
-                                          child: Center(
-                                            child: ElevatedButton(
-                                              onPressed: pickImageFromGallery,
-                                              child: Icon(Icons.play_circle),
-                                              style: ButtonStyle(
-                                                  minimumSize:
-                                                      MaterialStateProperty
-                                                          .resolveWith<Size>(
-                                                    (states) => Size(
-                                                        double.infinity,
-                                                        double.infinity),
-                                                  ),
-                                                  backgroundColor:
-                                                      MaterialStateProperty.all<
-                                                          Color>(Colors.white),
-                                                  shape:
-                                                      MaterialStateProperty.all<
-                                                          RoundedRectangleBorder>(
-                                                    RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5.0),
-                                                    ),
-                                                  )),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                                    ImportVideoButton(
+                                      onPressed: pickImageFromGallery,
                                     ),
                                   ],
                                 ),

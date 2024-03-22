@@ -19,7 +19,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: showBackButton,
-      elevation: 0,
       centerTitle: true,
       title: Text(
         title,
@@ -30,7 +29,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       leading: showBackButton
           ? IconButton(
-              icon: Icon(Icons.arrow_back_ios),
+              icon: Icon(
+                Icons.arrow_back_ios, 
+                color: AppColors.primaryColor),
               onPressed: onPressedBack,
               color: AppColors.primaryColor,
             )
@@ -41,3 +42,4 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
+
