@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/ui/account/ui/account.dart';
+import 'package:trangtraicua_demo/ui/check/detailcheckbox/ui/detailcheckbox.dart';
+import 'package:trangtraicua_demo/ui/check/filter/ui/fliter.dart';
 import 'package:trangtraicua_demo/ui/check/ui/check.dart';
 import 'package:trangtraicua_demo/ui/check/unit/ui/unit.dart';
 import 'package:trangtraicua_demo/ui/exportcrab/ui/exportcrab.dart';
@@ -12,13 +14,20 @@ import 'package:trangtraicua_demo/ui/home/otherwork/ui/otherwork.dart';
 import 'package:trangtraicua_demo/ui/home/ui/home.dart';
 import 'package:trangtraicua_demo/ui/home/watersources/ui/watersources.dart';
 import 'package:trangtraicua_demo/ui/importcrab/ui/importcrab.dart';
+import 'package:trangtraicua_demo/ui/login/ui/login.dart';
 
 class TrangTraiCuaRouter {
   GoRouter router = GoRouter(
       routes: [
         GoRoute(
-            name: RouteConstants.homeRouteName,
+            name: RouteConstants.loginRouteName,
             path: '/',
+            pageBuilder: (context, state) {
+              return MaterialPage(child: Login());
+            }),
+        GoRoute(
+            name: RouteConstants.homeRouteName,
+            path: '/home',
             pageBuilder: (context, state) {
               return MaterialPage(child: Home());
             }),
@@ -81,6 +90,18 @@ class TrangTraiCuaRouter {
             path: '/unit',
             pageBuilder: (context, state) {
               return MaterialPage(child: Unit1());
+            }),
+        GoRoute(
+            name: RouteConstants.detailboxRouteName,
+            path: '/detailbox',
+            pageBuilder: (context, state) {
+              return MaterialPage(child: ChiTietKiemTraBox());
+            }),
+        GoRoute(
+            name: RouteConstants.checkfilterRouteName,
+            path: '/checkfilter',
+            pageBuilder: (context, state) {
+              return MaterialPage(child: KiemTraLoc());
             }),
       ],
       errorPageBuilder: (context, state) {

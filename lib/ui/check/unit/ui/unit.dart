@@ -1,6 +1,8 @@
 // ignore_for_file: unused_import, sized_box_for_whitespace, avoid_unnecessary_containers, avoid_print, prefer_const_constructors, unnecessary_new, unused_element, prefer_const_literals_to_create_immutables, use_full_hex_values_for_flutter_colors
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/ui/check/detailcheckbox/ui/detailcheckbox.dart';
 import 'package:trangtraicua_demo/ui/check/filter/ui/fliter.dart';
 import 'package:trangtraicua_demo/ui/check/ui/check.dart';
@@ -24,14 +26,11 @@ class _Unit1State extends State<Unit1> {
       bloc: unitBloc,
       listener: (context, state) {
         if (state is UnitClickButtonBackState) {
-          Navigator.pop(
-              context, MaterialPageRoute(builder: (context) => Check()));
+         GoRouter.of(context).pushNamed(RouteConstants.checkRouteName);
         } else if (state is UnitClickXemThongTinBoxState) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ChiTietKiemTraBox()));
+          GoRouter.of(context).pushNamed(RouteConstants.detailboxRouteName);
         } else if (state is UnitClickButtonLocState) {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => KiemTraLoc()));
+          GoRouter.of(context).pushNamed(RouteConstants.checkfilterRouteName);
         }
       },
       builder: (context, state) {
