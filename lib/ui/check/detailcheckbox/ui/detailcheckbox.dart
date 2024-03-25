@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/styles/app_colors.dart';
 import 'package:trangtraicua_demo/ui/check/detailcheckbox/bloc/detailcheckbox_bloc.dart';
 import 'package:trangtraicua_demo/ui/check/unit/ui/unit.dart';
@@ -53,8 +55,7 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
         bloc: chiTietKiemtraBoxBloc,
         listener: (context, state) {
           if (state is ChiTietKiemTraBoxClickBackState) {
-            Navigator.pop(
-                context, MaterialPageRoute(builder: (context) => Unit1()));
+            GoRouter.of(context).pushNamed(RouteConstants.unitRouteName);
           }
         },
         builder: (context, state) {
@@ -67,8 +68,7 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
                   icon: Icon(Icons.arrow_back_ios),
                   color: Color.fromARGB(255, 173, 0, 6),
                   onPressed: () {
-                    // chiTietKiemtraBoxBloc.add(CTKTBoxClickBackEvent());
-                    Navigator.of(context).pop();
+                    // click
                   },
                 ),
                 title: Text(
@@ -210,12 +210,7 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
                               SizedBox(height: 25),
                               PrimaryButton(
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            ChiTietKiemTraBox()),
-                                  );
+                                  //click
                                 },
                                 text: 'LƯU & ĐI TIẾP HÀNG',
                               ),

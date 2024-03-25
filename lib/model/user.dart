@@ -1,4 +1,6 @@
 class User {
+  final String username;
+  final String password;
   final String id;
   final String phone;
   final String email;
@@ -9,6 +11,8 @@ class User {
   final String refreshToken;
 
   User({
+    required this.username,
+    required this.password,
     required this.id,
     required this.phone,
     required this.email,
@@ -21,6 +25,8 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
+      username: json['data']['username'],
+      password: json['data']['password'],
       id: json['data']['id'],
       phone: json['data']['phone'],
       email: json['data']['email'],

@@ -4,6 +4,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/ui/check/filter/bloc/fliter_bloc.dart';
 import 'package:trangtraicua_demo/ui/check/unit/ui/unit.dart';
 import 'package:trangtraicua_demo/widgets/button/primary_button.dart';
@@ -33,8 +35,7 @@ class _KiemTraLocState extends State<KiemTraLoc> {
         bloc: locBloc,
         listener: (context, state) {
           if (state is ClickBackState) {
-            Navigator.pop(
-                context, MaterialPageRoute(builder: (context) => Unit1()));
+           GoRouter.of(context).pushNamed(RouteConstants.unitRouteName);
           }
         },
         builder: (BuildContext context, LocState state) {

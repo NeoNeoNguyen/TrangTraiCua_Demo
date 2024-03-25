@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:trangtraicua_demo/network/api_login.dart';
-import 'package:trangtraicua_demo/ui/home/ui/home.dart';
+import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/ui/login/bloc/login_bloc.dart';
-import 'package:trangtraicua_demo/ui/login/ui/resetpass.dart';
 import 'package:trangtraicua_demo/widgets/button/primary_button.dart';
 import 'package:trangtraicua_demo/widgets/text/title_top_dropdown_box.dart';
 import 'package:trangtraicua_demo/widgets/textbox/input_box.dart';
@@ -18,48 +18,45 @@ class Login extends StatefulWidget {
   _LoginState createState() => _LoginState();
 }
 
-final TextEditingController _usernameController = TextEditingController();
-final TextEditingController _passwordController = TextEditingController();
-
 class _LoginState extends State<Login> {
   final LoginBloc _loginBloc = LoginBloc();
 
-  Future<void> _login() async {
-    final username = _usernameController.text.trim();
-    final password = _passwordController.text.trim();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
-    // Kiểm tra nếu tên đăng nhập hoặc mật khẩu trống
-    // if (username.isEmpty || password.isEmpty) {
-    //   showDialog(
-    //     context: context,
-    //     builder: (BuildContext context) {
-    //       return AlertDialog(
-    //         title: Text('Lỗi'),
-    //         content: Text(
-    //             'Vui lòng điền đầy đủ thông tin tên đăng nhập và mật khẩu.'),
-    //         actions: [
-    //           TextButton(
-    //             onPressed: () {
-    //               Navigator.of(context).pop();
-    //             },
-    //             child: Text('OK'),
-    //           ),
-    //         ],
-    //       );
-    //     },
-    //   );
-    //   return;
-    // }
+  Future<void> _login() async {
+    final username = _usernameController.text.toString();
+    final password = _passwordController.text.toString();
+
+    //Kiểm tra nếu tên đăng nhập hoặc mật khẩu trống
+    if (username.isEmpty || password.isEmpty) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Lỗi'),
+            content: Text(
+                'Vui lòng điền đầy đủ thông tin tên đăng nhập và mật khẩu.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+      return;
+    }
 
     final hashedPassword = sha256.convert(utf8.encode(password)).toString();
 
     try {
       final response = await ApiService.loginUser(username, hashedPassword);
       if (response['status'] == 200) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => Home()),
-        );
+        GoRouter.of(context).pushNamed(RouteConstants.homeRouteName);
       } else {
         showDialog(
           context: context,
@@ -108,10 +105,11 @@ class _LoginState extends State<Login> {
       bloc: _loginBloc,
       listener: (context, state) {
         if (state is LoginClickResetPassState) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => ResetPass()),
-          );
+          // Navigator.pushReplacement(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => ResetPass()),
+          // );
+          GoRouter.of(context).pushNamed(RouteConstants.homeRouteName);
         }
       },
       builder: (context, state) {
@@ -132,21 +130,33 @@ class _LoginState extends State<Login> {
                 SizedBox(height: 20),
                 TitleTextBox(title: 'Tên đăng nhập'),
                 SizedBox(height: 10),
-                InputBox(
+                // InputBox(
+                //   controller: _usernameController,
+                //   hintText: 'Tên đăng nhập',
+                //   keyboardType: TextInputType.text,
+                //   autofocus: true,
+                //   onChanged: (value) {},
+                // ),
+                TextField(
                   controller: _usernameController,
-                  hintText: 'Tên đăng nhập',
-                  keyboardType: TextInputType.text,
-                  autofocus: true,
-                  onChanged: (value) {},
+                  decoration: InputDecoration(
+                    hintText: 'Nhập tên đăng nhập',
+                  ),
                 ),
                 SizedBox(height: 16),
                 TitleTextBox(title: 'Mật khẩu'),
                 SizedBox(height: 10),
-                PasswordTextField(
+                // PasswordTextField(
+                //   controller: _passwordController,
+                //   hintText: 'Mật khẩu',
+                //   keyboardType: TextInputType.text,
+                //   autofocus: true,
+                // ),
+                TextField(
                   controller: _passwordController,
-                  hintText: 'Mật khẩu',
-                  keyboardType: TextInputType.text,
-                  autofocus: true,
+                  decoration: InputDecoration(
+                    hintText: 'Mật khẩu',
+                  ),
                 ),
                 SizedBox(height: 16),
                 PrimaryButton(

@@ -11,7 +11,9 @@ class InputBox extends StatelessWidget {
     Key? key,
     required this.hintText,
     required this.keyboardType,
-    required this.onChanged, required TextEditingController controller, required bool autofocus, 
+    required this.onChanged, 
+    required TextEditingController controller, 
+    required bool autofocus, 
   }) : super(key: key);
 
   @override
