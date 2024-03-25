@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_final_fields, unused_field, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:trangtraicua_demo/ui/accout/ui/accout.dart';
-import 'package:trangtraicua_demo/ui/check/ui/check.dart';
-import 'package:trangtraicua_demo/ui/home/ui/home.dart';
-import 'package:trangtraicua_demo/ui/importcrab/ui/importcrab.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/widgets/button/filter_button.dart';
 import 'package:trangtraicua_demo/widgets/button/third_button.dart';
 import 'package:trangtraicua_demo/widgets/nav/bottomnavigation.dart';
@@ -41,32 +39,18 @@ class _ExportcrabState extends State<Exportcrab> {
             });
             switch (index) {
               case 0:
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => Home()),
-                );
+                GoRouter.of(context).pushNamed(RouteConstants.homeRouteName);
                 break;
               case 1:
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          Check()), // Điều hướng về trang Home
-                );
+                GoRouter.of(context).pushNamed(RouteConstants.checkRouteName);
                 break;
               case 2:
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => Importcrab()),
-                );
+                GoRouter.of(context).pushNamed(RouteConstants.importcrabRouteName);
                 break;
               case 3:
                 break;
               case 4:
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => Accout()),
-                );
+                GoRouter.of(context).pushNamed(RouteConstants.accountRouteName);
                 break;
             }
           },

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, unused_import, sized_box_for_whitespace, sort_child_properties_last, use_full_hex_values_for_flutter_colors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, unused_import, sized_box_for_whitespace, sort_child_properties_last, use_full_hex_values_for_flutter_colors, prefer_const_literals_to_create_immutables, prefer_final_fields
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,6 +24,8 @@ class ChiTietKiemTraBox extends StatefulWidget {
 
 class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
   final ChitietkiemtraboxBloc chiTietKiemtraBoxBloc = ChitietkiemtraboxBloc();
+
+  TextEditingController _numbersdiecrab = TextEditingController();
 
   String typecrab = 'Cua tiêu';
   String dropdownValue = 'Đang lột';
@@ -166,7 +168,7 @@ class _ChiTietKiemTraBoxState extends State<ChiTietKiemTraBox> {
                                           numberOfDeadCrabs =
                                               int.tryParse(value) ?? 0;
                                         });
-                                      },
+                                      }, controller: _numbersdiecrab, autofocus: true, 
                                     ),
                                   ],
                                 ),

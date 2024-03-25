@@ -9,7 +9,7 @@ class PasswordTextField extends StatefulWidget {
   const PasswordTextField({
     Key? key,
     required this.hintText,
-    required this.keyboardType,
+    required this.keyboardType, required TextEditingController controller, required bool autofocus,
   }) : super(key: key);
 
   @override

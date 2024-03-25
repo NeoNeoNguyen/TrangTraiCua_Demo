@@ -1,16 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unused_field, unused_element, no_leading_underscores_for_local_identifiers, unused_local_variable
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trangtraicua_demo/ui/accout/ui/accout.dart';
-import 'package:trangtraicua_demo/ui/check/ui/check.dart';
-import 'package:trangtraicua_demo/ui/exportcrab/ui/exportcrab.dart';
-import 'package:trangtraicua_demo/ui/home/Food/ui/food.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/ui/home/bloc/home_bloc.dart';
-import 'package:trangtraicua_demo/ui/home/devices/ui/devices.dart';
-import 'package:trangtraicua_demo/ui/home/movebox/ui/movebox.dart';
-import 'package:trangtraicua_demo/ui/home/otherwork/ui/otherwork.dart';
-import 'package:trangtraicua_demo/ui/home/watersources/ui/watersources.dart';
-import 'package:trangtraicua_demo/ui/importcrab/ui/importcrab.dart';
 import 'package:trangtraicua_demo/widgets/button/costom_elevent_button.dart';
 import 'package:trangtraicua_demo/widgets/nav/bottomnavigation.dart';
 
@@ -32,23 +25,17 @@ class _HomeState extends State<Home> {
         bloc: homeBloc,
         listener: (context, state) {
           if (state is ClickCheckCleaningFeedingState) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Check()));
+            GoRouter.of(context).pushNamed(RouteConstants.checkRouteName);
           } else if (state is ClickMoveBoxState) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => MoveBox()));
+            GoRouter.of(context).pushNamed(RouteConstants.moveboxRouteName);
           } else if (state is ClickCheckWaterSourcesState) {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => WaterSources()));
+            GoRouter.of(context).pushNamed(RouteConstants.waterRouteName);
           } else if (state is ClickDevicesState) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Devices()));
+            GoRouter.of(context).pushNamed(RouteConstants.deviceRouteName);
           } else if (state is ClickFoodsState) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Food()));
+            GoRouter.of(context).pushNamed(RouteConstants.foodRouteName);
           } else if (state is ClickOtherWorkState) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => OtherWork()));
+            GoRouter.of(context).pushNamed(RouteConstants.otherworkRouteName);
           }
         },
         builder: (context, state) {
@@ -86,28 +73,16 @@ class _HomeState extends State<Home> {
                     case 0:
                       break;
                     case 1:
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => Check()),
-                      );
+                      GoRouter.of(context).pushNamed(RouteConstants.checkRouteName);
                       break;
                     case 2:
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => Importcrab()),
-                      );
+                        GoRouter.of(context).pushNamed(RouteConstants.importcrabRouteName);
                       break;
                     case 3:
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => Exportcrab()),
-                      );
+                        GoRouter.of(context).pushNamed(RouteConstants.exportcrabRouteName);
                       break;
                     case 4:
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => Accout()),
-                      );
+                        GoRouter.of(context).pushNamed(RouteConstants.accountRouteName);
                       break;
                   }
                 },

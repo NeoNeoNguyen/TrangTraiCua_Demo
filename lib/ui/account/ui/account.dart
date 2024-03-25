@@ -1,23 +1,21 @@
 // ignore_for_file: prefer_final_fields, unused_field, prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/styles/app_colors.dart';
-import 'package:trangtraicua_demo/ui/check/ui/check.dart';
-import 'package:trangtraicua_demo/ui/exportcrab/ui/exportcrab.dart';
-import 'package:trangtraicua_demo/ui/home/ui/home.dart';
-import 'package:trangtraicua_demo/ui/importcrab/ui/importcrab.dart';
 import 'package:trangtraicua_demo/widgets/button/costom_elevent_button.dart';
 import 'package:trangtraicua_demo/widgets/nav/bottomnavigation.dart';
 import 'package:trangtraicua_demo/widgets/text/number_hotline.dart';
 
-class Accout extends StatefulWidget {
-  const Accout({Key? key});
+class Account extends StatefulWidget {
+  const Account({Key? key});
 
   @override
-  State<Accout> createState() => _AccoutState();
+  State<Account> createState() => _AccoutState();
 }
 
-class _AccoutState extends State<Accout> {
+class _AccoutState extends State<Account> {
   int _selectedIndex = 4;
 
   @override
@@ -43,28 +41,16 @@ class _AccoutState extends State<Accout> {
           });
           switch (index) {
             case 0:
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => Home()),
-              );
+              GoRouter.of(context).pushNamed(RouteConstants.homeRouteName);
               break;
             case 1:
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => Check()),
-              );
+              GoRouter.of(context).pushNamed(RouteConstants.checkRouteName);
               break;
             case 2:
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => Importcrab()),
-              );
+              GoRouter.of(context).pushNamed(RouteConstants.importcrabRouteName);
               break;
             case 3:
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => Exportcrab()),
-              );
+              GoRouter.of(context).pushNamed(RouteConstants.exportcrabRouteName);
               break;
             case 4:
               break;
