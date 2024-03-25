@@ -2,10 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trangtraicua_demo/ui/accout/ui/accout.dart';
-import 'package:trangtraicua_demo/ui/check/ui/check.dart';
-import 'package:trangtraicua_demo/ui/exportcrab/ui/exportcrab.dart';
-import 'package:trangtraicua_demo/ui/home/ui/home.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/ui/importcrab/bloc/importcrab_bloc.dart';
 import 'package:trangtraicua_demo/ui/importcrab/filter_importcrab/ui/filter_importcrab.dart';
 import 'package:trangtraicua_demo/widgets/button/filter_button.dart';
@@ -35,180 +33,172 @@ class _ImportcrabState extends State<Importcrab> {
         },
         builder: (context, state) {
           return Scaffold(
-            appBar: AppBar(
-              automaticallyImplyLeading: false,
-              elevation: 0,
-              centerTitle: true,
-              title: const Text(
-                'NHẬP CUA',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 173, 0, 6),
-                    fontWeight: FontWeight.bold),
+              appBar: AppBar(
+                automaticallyImplyLeading: false,
+                elevation: 0,
+                centerTitle: true,
+                title: const Text(
+                  'NHẬP CUA',
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 173, 0, 6),
+                      fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            bottomNavigationBar: NaviBar(
-              selectedIndex: _selectedIndex,
-              onItemTapped: (index) {
-                setState(() {
-                  _selectedIndex = index;
-                });
-                switch (index) {
-                  case 0:
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => Home()),
-                    );
-                    break;
-                  case 1:
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => Check()),
-                    );
-                    break;
-                  case 2:
-                    break;
-                  case 3:
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => Exportcrab()),
-                    );
-                    break;
-                  case 4:
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => Accout()),
-                    );
-                    break;
-                }
-              },
-            ),
-            body: Padding(
-              padding: EdgeInsets.all(10),
-              child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        FilterButton(
-                          onPressed: () {},
+              bottomNavigationBar: NaviBar(
+                selectedIndex: _selectedIndex,
+                onItemTapped: (index) {
+                  setState(() {
+                    _selectedIndex = index;
+                  });
+                  switch (index) {
+                    case 0:
+                      GoRouter.of(context)
+                          .pushNamed(RouteConstants.homeRouteName);
+                      break;
+                    case 1:
+                      GoRouter.of(context)
+                          .pushNamed(RouteConstants.checkRouteName);
+                      break;
+                    case 2:
+                      break;
+                    case 3:
+                      GoRouter.of(context)
+                          .pushNamed(RouteConstants.exportcrabRouteName);
+                      break;
+                    case 4:
+                      GoRouter.of(context)
+                          .pushNamed(RouteConstants.accountRouteName);
+                      break;
+                  }
+                },
+              ),
+              body: Padding(
+                padding: EdgeInsets.all(10),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            FilterButton(
+                              onPressed: () {},
+                            ),
+                            ThirdButton(
+                              onTap: () {},
+                              text: 'NHẬP CUA',
+                            ),
+                          ],
                         ),
-                        ThirdButton(
-                          onTap: () {},
-                          text: 'NHẬP CUA',
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(5),
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 234, 251, 255),
-                        border: Border.all(
-                          color: Color.fromARGB(255, 234, 251, 255),
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(5),
                       ),
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Wrap(
-                            spacing: 20,
-                            children: <Widget>[
-                              Text(
-                                'Tổng SL cua: 201',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              Text(
-                                'Tổng TL: 33,42kg',
-                                style: TextStyle(color: Colors.grey),
-                              ),                             
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return Card(
-                        child: ListTile(
-                          title: Row(
-                            children: [
-                              Text(
-                                'Mã phiếu nhập:',
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(width: 5),
-                              Text('NC98435'),
-                            ],
+                      Padding(
+                        padding: EdgeInsets.all(5),
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 234, 251, 255),
+                            border: Border.all(
+                              color: Color.fromARGB(255, 234, 251, 255),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(5),
                           ),
-                          subtitle: Column(
+                          width: MediaQuery.of(context).size.width,
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
+                            children: <Widget>[
+                              Wrap(
+                                spacing: 20,
+                                children: <Widget>[
                                   Text(
-                                    'Ngày nhập:',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
+                                    'Tổng SL cua: 201',
+                                    style: TextStyle(color: Colors.grey),
                                   ),
-                                  SizedBox(width: 5),
-                                  Text('Ngày: 21/02/2024'),
-                                ],
-                              ),
-                              Row(
-                                children: [
                                   Text(
-                                    'Loại cua:',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
+                                    'Tổng TL: 33,42kg',
+                                    style: TextStyle(color: Colors.grey),
                                   ),
-                                  SizedBox(width: 5),
-                                  Text('Loại 1'),
                                 ],
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    'Số lượng cua được nhập:',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(width: 5),
-                                  Text('100'),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    'Tổng trọng lượng nhập:',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(width: 5),
-                                  Text('50kg'),
-                                ],
-                              ),
+                              )
                             ],
                           ),
                         ),
-                      );
-                    },
+                      ),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: 10,
+                        itemBuilder: (context, index) {
+                          return Card(
+                            child: ListTile(
+                              title: Row(
+                                children: [
+                                  Text(
+                                    'Mã phiếu nhập:',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(width: 5),
+                                  Text('NC98435'),
+                                ],
+                              ),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'Ngày nhập:',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(width: 5),
+                                      Text('Ngày: 21/02/2024'),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'Loại cua:',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(width: 5),
+                                      Text('Loại 1'),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'Số lượng cua được nhập:',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(width: 5),
+                                      Text('100'),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'Tổng trọng lượng nhập:',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(width: 5),
+                                      Text('50kg'),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-            )
-          );
+                ),
+              ));
         });
   }
 }

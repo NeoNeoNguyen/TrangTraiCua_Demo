@@ -1,12 +1,9 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names, unused_element, unused_field, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, unused_label, dead_code
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trangtraicua_demo/ui/accout/ui/accout.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/ui/check/bloc/check_bloc.dart';
-import 'package:trangtraicua_demo/ui/check/unit/ui/unit.dart';
-import 'package:trangtraicua_demo/ui/exportcrab/ui/exportcrab.dart';
-import 'package:trangtraicua_demo/ui/home/ui/home.dart';
-import 'package:trangtraicua_demo/ui/importcrab/ui/importcrab.dart';
 import 'package:trangtraicua_demo/widgets/image/image_crab_24.dart';
 import 'package:trangtraicua_demo/widgets/main/appbar.dart';
 import 'package:trangtraicua_demo/widgets/nav/bottomnavigation.dart';
@@ -28,8 +25,7 @@ class _CheckState extends State<Check> {
         bloc: checkBloc,
         listener: (context, state) {
           if (state is ClickUnitState) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Unit1()));
+            GoRouter.of(context).pushNamed(RouteConstants.unitRouteName);
           }
         },
         builder: (context, state) {
@@ -46,30 +42,18 @@ class _CheckState extends State<Check> {
                 });
                 switch (index) {
                   case 0:
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => Home()),
-                    );
+                    GoRouter.of(context).pushNamed(RouteConstants.homeRouteName);
                     break;
                   case 1:
                     break;
                   case 2:
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => Importcrab()),
-                    );
+                    GoRouter.of(context).pushNamed(RouteConstants.importcrabRouteName);
                     break;
                   case 3:
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => Exportcrab()),
-                    );
+                    GoRouter.of(context).pushNamed(RouteConstants.exportcrabRouteName);
                     break;
                   case 4:
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => Accout()),
-                    );
+                    GoRouter.of(context).pushNamed(RouteConstants.accountRouteName);
                     break;
                 }
               },
