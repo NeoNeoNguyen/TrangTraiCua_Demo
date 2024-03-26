@@ -1,4 +1,4 @@
-import 'dart:convert';
+//import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -6,10 +6,13 @@ import 'package:trangtraicua_demo/network/api_login.dart';
 import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/ui/login/bloc/login_bloc.dart';
 import 'package:trangtraicua_demo/widgets/button/primary_button.dart';
+import 'package:trangtraicua_demo/widgets/hash/hash.dart';
 import 'package:trangtraicua_demo/widgets/text/title_top_dropdown_box.dart';
 import 'package:trangtraicua_demo/widgets/textbox/input_box.dart';
 import 'package:trangtraicua_demo/widgets/textbox/password_textfield.dart';
-import 'package:crypto/crypto.dart';
+// import 'package:trangtraicua_demo/widgets/textbox/input_box.dart';
+// import 'package:trangtraicua_demo/widgets/textbox/password_textfield.dart';
+// import 'package:crypto/crypto.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -51,7 +54,7 @@ class _LoginState extends State<Login> {
       return;
     }
 
-    final hashedPassword = sha256.convert(utf8.encode(password)).toString();
+    String hashedPassword = PasswordHasher.hashPassword(password);
 
     try {
       final response = await ApiService.loginUser(username, hashedPassword);
@@ -130,34 +133,34 @@ class _LoginState extends State<Login> {
                 SizedBox(height: 20),
                 TitleTextBox(title: 'Tên đăng nhập'),
                 SizedBox(height: 10),
-                // InputBox(
-                //   controller: _usernameController,
-                //   hintText: 'Tên đăng nhập',
-                //   keyboardType: TextInputType.text,
-                //   autofocus: true,
-                //   onChanged: (value) {},
-                // ),
-                TextField(
+                InputBox(
                   controller: _usernameController,
-                  decoration: InputDecoration(
-                    hintText: 'Nhập tên đăng nhập',
-                  ),
+                  hintText: 'Tên đăng nhập',
+                  keyboardType: TextInputType.text,
+                  autofocus: true,
+                  onChanged: (value) {},
                 ),
+                // TextField(
+                //   controller: _usernameController,
+                //   decoration: InputDecoration(
+                //     hintText: 'Nhập tên đăng nhập',
+                //   ),
+                // ),
                 SizedBox(height: 16),
                 TitleTextBox(title: 'Mật khẩu'),
                 SizedBox(height: 10),
-                // PasswordTextField(
-                //   controller: _passwordController,
-                //   hintText: 'Mật khẩu',
-                //   keyboardType: TextInputType.text,
-                //   autofocus: true,
-                // ),
-                TextField(
+                PasswordTextField(
                   controller: _passwordController,
-                  decoration: InputDecoration(
-                    hintText: 'Mật khẩu',
-                  ),
+                  hintText: 'Mật khẩu',
+                  keyboardType: TextInputType.text,
+                  autofocus: true,
                 ),
+                // TextField(
+                //   controller: _passwordController,
+                //   decoration: InputDecoration(
+                //     hintText: 'Mật khẩu',
+                //   ),
+                // ),
                 SizedBox(height: 16),
                 PrimaryButton(
                   onTap: _login,

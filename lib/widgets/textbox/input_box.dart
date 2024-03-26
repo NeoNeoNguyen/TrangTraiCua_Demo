@@ -6,14 +6,16 @@ class InputBox extends StatelessWidget {
   final String hintText;
   final TextInputType keyboardType;
   final Function(String) onChanged;
+  final TextEditingController controller;
+  final bool autofocus;
 
   const InputBox({
     Key? key,
     required this.hintText,
     required this.keyboardType,
-    required this.onChanged, 
-    required TextEditingController controller, 
-    required bool autofocus, 
+    required this.onChanged,
+    required this.controller, 
+    required this.autofocus,  
   }) : super(key: key);
 
   @override
@@ -31,6 +33,8 @@ class InputBox extends StatelessWidget {
         ),
         keyboardType: keyboardType,
         onChanged: onChanged,
+        controller: controller, 
+        autofocus: autofocus,   
       ),
     );
   }

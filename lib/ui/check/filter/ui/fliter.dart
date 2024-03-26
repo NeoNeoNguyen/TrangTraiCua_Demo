@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:trangtraicua_demo/router/app_router_const.dart';
 import 'package:trangtraicua_demo/ui/check/filter/bloc/fliter_bloc.dart';
-import 'package:trangtraicua_demo/ui/check/unit/ui/unit.dart';
 import 'package:trangtraicua_demo/widgets/button/primary_button.dart';
 import 'package:trangtraicua_demo/widgets/text/title_top_textbox.dart';
 import 'package:trangtraicua_demo/widgets/textbox/dropdown_box.dart';
