@@ -5,13 +5,15 @@ import 'package:flutter/material.dart';
 class PasswordTextField extends StatefulWidget {
   final String hintText;
   final TextInputType keyboardType;
+  final TextEditingController controller; 
+  final bool autofocus;                    
 
   const PasswordTextField({
     Key? key,
     required this.hintText,
-    required this.keyboardType, 
-    required TextEditingController controller, 
-    required bool autofocus,
+    required this.keyboardType,
+    required this.controller, 
+    required this.autofocus,  
   }) : super(key: key);
 
   @override
@@ -32,6 +34,8 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       child: TextField(
         keyboardType: widget.keyboardType,
         obscureText: _obscureText,
+        controller: widget.controller, 
+        autofocus: widget.autofocus,     
         decoration: InputDecoration(
           hintText: widget.hintText,
           border: InputBorder.none,
